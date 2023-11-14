@@ -16,10 +16,10 @@ const ParticlesDemo = () => {
                     },
                     "particles": {
                         "number": {
-                            "value": 14,
+                            "value": 20,
                             "density": {
-                                "enable": false,
-                                "value_area": 800
+                                "enable": true,
+                                "value_area": 200
                             }
                         },
                         "color": {
@@ -39,7 +39,7 @@ const ParticlesDemo = () => {
                             }
                         },
                         "size": {
-                            "value": 4,
+                            "value": 0.1,
                             "random": false,
                             "anim": {
                                 "enable": false,
@@ -60,7 +60,7 @@ const ParticlesDemo = () => {
                         },
                         "line_linked": {
                             "enable": true,
-                            "distance": 600,
+                            "distance": 150,
                             "color": "#ffffff",
                             "opacity": 0.4,
                             "width": 2
@@ -82,14 +82,10 @@ const ParticlesDemo = () => {
                     "interactivity": {
                         "events": {
                             "onhover": {
-                                "enable": true,
+                                "enable": false,
                                 "mode": ["grab"]
                             },
-                            "onclick": {
-                                "enable": false,
-                                "mode": "bubble"
-                            },
-                            "resize": true
+                            "resize": false
                         },
                         "modes": {
                             "grab": {

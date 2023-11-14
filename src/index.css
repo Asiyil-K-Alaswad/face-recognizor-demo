@@ -1,10 +1,10 @@
 body {
   width: auto;
+  height: 100vh /*minmax(100vh,auto)*/;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Lucida Console';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
 
 code {
@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-#root{
-  height: auto;  
+#bg{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+  z-index: -5;
 }
