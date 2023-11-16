@@ -1,10 +1,10 @@
 import React from 'react';
 
-const TitleMessage = () =>{
+const TitleMessage = ({userName,userEntries}) =>{
     return (
         <div>
-            <div className='white f3'> {'andrei, thy rank is...'} </div>
-            <div className='white f1'> {'#5!'} </div>
+            <div className='white f3'> {`${userName}, your entries reached...`} </div>
+            <div className='white f1'> {`${userEntries}!`} </div>
         </div>
     )
 }

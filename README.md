@@ -1,3 +1,8 @@
+# bullet points to understand the structure
+- the root folder is the front-end
+- the 'Face-Recognizer-api' is the back-end
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
