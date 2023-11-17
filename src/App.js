@@ -131,6 +131,7 @@ class App extends Component  {
     if(newRoute == 'home'){
       this.setState({isSignedIn:true});
     }else if(newRoute === 'register' || newRoute === 'signin'){
+      this.setState({imageUrl:''})
       this.setState({isSignedIn:false});
     }
     this.setState({route:newRoute})
