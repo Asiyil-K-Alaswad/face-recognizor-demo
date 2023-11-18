@@ -85,11 +85,11 @@ class App extends Component  {
   {
     this.setState({imageUrl: this.state.input});
 
-    fetch("http://localhost:3000/clarifai?input=" + this.state.input)
+    fetch("https://face-recognizor-demo-api.onrender.com/clarifai?input=" + this.state.input)
       .then(response => response.json())
       .then(res => {
         if(res){
-          fetch('http://localhost:3000/image',{
+          fetch('https://face-recognizor-demo-api.onrender.com/image',{
             method:'put',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({id:this.state.user.id})})

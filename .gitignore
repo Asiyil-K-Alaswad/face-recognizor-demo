@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/Face-Recognizer-api/node_modules
 /.pnp
 .pnp.js
 

@@ -16,18 +16,20 @@ class Register extends React.Component {
     }
     onEmailChange = (event) =>{
         this.setState({email:event.target.value});
+        console.log(event.target.value)
     }
     onPasswrodChange = (event) =>{
         this.setState({passwrod:event.target.value});
     }
 
     onSubmitSignUp = () => {
-        if(!this.state.signInEmail.includes('@')
+        console.log(this.state.email , this.state.name, this.state.passwrod.length)
+        if(!this.state.email.includes('@')
             || this.state.name === ''
             ||  this.state.passwrod.length < 6)
         {return;}
 
-        fetch('http://localhost:3000/register',{
+        fetch('https://face-recognizor-demo-api.onrender.com/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(
