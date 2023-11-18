@@ -9,7 +9,20 @@ import ParticlesDemo from './ParticlesDemo';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 
-
+const initialState = {
+  input : '',
+  imageUrl: '',
+  box: {},
+  route: 'signin',
+  isSignedIn: false,
+  user:{
+    id:'',
+    name:"",
+    email:"",
+    entries: 0,
+    joined: ''
+  }
+};
 
 class App extends Component  {
   constructor()
@@ -71,39 +84,8 @@ class App extends Component  {
   OnButtonSubmit = (event) =>
   {
     this.setState({imageUrl: this.state.input});
-    
-    const PAT = 'ad029ad1c39740ca8f7879cf2e8200f7';
-    const USER_ID = 'asiyil-k';
-    const APP_ID = 'faceRecogTest';
-    const MODEL_ID = 'face-detection';
-    const IMAGE_URL = this.state.input;
-    const raw = JSON.stringify({
-      "user_app_id": {
-        "user_id": USER_ID,
-        "app_id": APP_ID
-      },
-      "inputs": [
-        {
-          "data": {
-            "image": {
-              "url": IMAGE_URL
-            }
-          }
-        }
-      ]
-    });
 
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Key ' + PAT
-      },
-      body: raw
-    };
-
-    let data
-    fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions)
+    fetch("http://localhost:3000/clarifai?input=" + this.state.input)
       .then(response => response.json())
       .then(res => {
         if(res){
@@ -123,15 +105,13 @@ class App extends Component  {
         this.displayBox(this.CalculateFaceLocation(res))
       })
       .catch(err => console.log(err))
-    console.log(this.state);
   }
 
   onRouteChange = (newRoute) => {
-    console.log(`comparing ${newRoute} with ${this.state.route}`)
     if(newRoute == 'home'){
       this.setState({isSignedIn:true});
     }else if(newRoute === 'register' || newRoute === 'signin'){
-      this.setState({imageUrl:''})
+      this.setState(initialState);
       this.setState({isSignedIn:false});
     }
     this.setState({route:newRoute})

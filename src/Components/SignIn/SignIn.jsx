@@ -17,6 +17,9 @@ class SignIn extends React.Component {
     }
 
     onSubmitLogin = () => {
+        if(!this.state.signInEmail.includes('@'))
+        {return;}
+        
         fetch('http://localhost:3000/signin',{
             method:'post',
             headers:{'Content-Type':'application/json'},
@@ -27,7 +30,6 @@ class SignIn extends React.Component {
         .then(user => {
             if(user.id)
             {
-                console.log(user);
                 this.props.LoadUser(user);
                 this.props.onRouteChange('home')
             }

@@ -22,6 +22,11 @@ class Register extends React.Component {
     }
 
     onSubmitSignUp = () => {
+        if(!this.state.signInEmail.includes('@')
+            || this.state.name === ''
+            ||  this.state.passwrod.length < 6)
+        {return;}
+
         fetch('http://localhost:3000/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
